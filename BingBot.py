@@ -57,7 +57,7 @@ else:
 		choice = menu()
 
 
-if shutil.which(browsers[choice-1]) == None:
+if shutil.which(browsers[choice-1].lower()) == None:
 	print("Python can't find your browser, please consult README")
 	exit()
 
@@ -68,7 +68,11 @@ else:
 
 browser.open_new("https://www.bing.com")
 
-"""
+#http://stackoverflow.com/questions/21993102/python-check-if-another-python-application-is-running
+#https://docs.python.org/3/library/subprocess.html
+psout = subprocess.Popen(['ps', 'ax'], stdout=subprocess.PIPE, writeable_newlines=True).communicate()[0]
+if webbrowser.get(browsers[choice-1].lower()) not in psout:
+
 for i in range(21):
 	if i in range(len(searches)):
 		pyautogui.typewrite(searches[i])
@@ -77,4 +81,3 @@ for i in range(21):
 	pyautogui.press(ENTER)
 	if(i != 20):
 		newtab()
-"""
