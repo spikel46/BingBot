@@ -2,8 +2,8 @@
 #Version 1.5
 #Built for Python 3.5.2
 
-
-import os, sys, shutil, subprocess
+import win32ui
+import os, sys, shutil, subprocess,time
 import pyautogui #gives all our automation functionality
 import webbrowser #https://docs.python.org/3/library/webbrowser.html
 
@@ -70,9 +70,23 @@ browser.open_new("https://www.bing.com")
 
 #http://stackoverflow.com/questions/21993102/python-check-if-another-python-application-is-running
 #https://docs.python.org/3/library/subprocess.html
+
+if sys.platform == "win32":
+        print("win")
+
+#if sys.platform == "linux":
 psout = subprocess.Popen(['ps', 'ax'], stdout=subprocess.PIPE, universal_newlines=True).communicate()[0]
-if webbrowser.get(browsers[choice-1].lower()) not in psout:
-	psout = subprocess.Popen(['ps', 'ax'], stdout=subprocess.PIPE, universal_newlines=True).communicate()[0]
+while browsers[choice-1].lower() not in psout:
+        psout = subprocess.Popen(['ps', 'ax'], stdout=subprocess.PIPE, universal_newlines=True).communicate()[0]
+
+
+time.sleep(5)
+"""
+i understand this isn't ideal, if anyone has a fix 
+for making sure the browser is actually open and 
+not just running before running the for loop please let me know.
+"""
+
 for i in range(21):
 	if i in range(len(searches)):
 		pyautogui.typewrite(searches[i])
