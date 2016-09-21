@@ -22,7 +22,8 @@ browsers = ["Firefox", "Chrome", "Safari", "Default Browser"]
 searches = ["top stories","seattle hackathons","futuristic tech","russian classes seattle",
 "sbux stock","tmus stock","msft stock","how many days until january 3rd","elon musk",
 "kendrick jcole collab","is bleach manga over", "GRE Exam tips","daydream vr",
-"hololens","how to make your own web browser", "Rick and Morty Season 3", "Galaxy Note 7"]
+"hololens","how to make your own web browser", "Rick and Morty Season 3", "Galaxy Note 7",
+"seattlevr us"]
 
 #menu for people
 def menu():
@@ -82,9 +83,9 @@ else:
 
 time.sleep(5)
 """
-i understand this isn't ideal, if anyone has a fix 
-for making sure the browser is actually open and 
-not just running/starting up before entering the 
+i understand this isn't ideal, if anyone has a fix
+for making sure the browser is actually open and
+not just running/starting up before entering the
 for loop please let me know.
 """
 
